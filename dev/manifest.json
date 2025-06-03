@@ -1,6 +1,6 @@
 {
   "name": "Price Comparison Dev",
-  "version": "1.0",
+  "version": "0",
   "manifest_version": 3,
   "content_scripts": [
     {

@@ -28,9 +28,9 @@ export function www_pccomponentes_com(url) {
                     condition: data.itemCondition?.replace('https://schema.org/', '') || null,
                     availability: offers.availability?.replace('https://schema.org/', '') || null,
                     rating: data.aggregateRating?.ratingValue ? parseFloat(data.aggregateRating.ratingValue) : null,
-                    reviewCount: data.aggregateRating?.reviewCount ? parseInt(data.aggregateRating.reviewCount) : null,
+                    review_count: data.aggregateRating?.reviewCount ? parseInt(data.aggregateRating.reviewCount) : null,
                     seller: offers.offeredBy,
-                    originalPrice: offers.priceSpecification?.price ? parseFloat(offers.priceSpecification.price) : null
+                    original_price: offers.priceSpecification?.price ? parseFloat(offers.priceSpecification.price) : null
                 };
             }
         } catch (e) {

@@ -20,9 +20,9 @@ export function www_tradeinn_com(url) {
                     condition: data.itemCondition?.replace('https://schema.org/', '') || null,
                     availability: offer.availability?.replace('https://schema.org/', '') || null,
                     rating: data.aggregateRating?.ratingValue ? parseFloat(data.aggregateRating.ratingValue) : null,
-                    reviewCount: data.aggregateRating?.reviewCount ? parseInt(data.aggregateRating.reviewCount) : null,
+                    review_count: data.aggregateRating?.reviewCount ? parseInt(data.aggregateRating.reviewCount) : null,
                     seller: offer.offeredBy,
-                    originalPrice: offer.priceSpecification?.price ? parseFloat(offer.priceSpecification.price) : null
+                    original_price: offer.priceSpecification?.price ? parseFloat(offer.priceSpecification.price) : null
                 };
             }
         } catch (e) {

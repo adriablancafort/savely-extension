@@ -21,9 +21,9 @@ export function www_mediamarkt_es(url) {
                     condition: offers?.itemCondition?.replace('http://schema.org/', '') || null,
                     availability: offers?.availability?.replace('http://schema.org/', '') || null,
                     rating: product.aggregateRating?.ratingValue ? parseFloat(product.aggregateRating.ratingValue) : null,
-                    reviewCount: product.aggregateRating?.ratingCount ? parseInt(product.aggregateRating.ratingCount) : null,
+                    review_count: product.aggregateRating?.ratingCount ? parseInt(product.aggregateRating.ratingCount) : null,
                     seller: offers?.offeredBy || 'MediaMarkt',
-                    originalPrice: offers?.priceSpecification?.price ? parseFloat(offers.priceSpecification.price) : null
+                    original_price: offers?.priceSpecification?.price ? parseFloat(offers.priceSpecification.price) : null
                 };
             }
         } catch (e) {

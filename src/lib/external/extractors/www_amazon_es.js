@@ -34,9 +34,9 @@ export function www_amazon_es(url) {
             condition: null,
             availability: null,
             rating: null,
-            reviewCount: null,
+            review_count: null,
             seller: null,
-            originalPrice: null
+            original_price: null
         };
     } catch (e) {
         return null;

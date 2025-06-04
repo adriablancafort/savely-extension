@@ -20,9 +20,9 @@ export function generic(url) {
                     condition: data.itemCondition?.replace('https://schema.org/', '').replace('http://schema.org/', '') || null,
                     availability: offers.availability?.replace('https://schema.org/', '').replace('http://schema.org/', '') || null,
                     rating: data.aggregateRating?.ratingValue ? parseFloat(data.aggregateRating.ratingValue) : null,
-                    reviewCount: data.aggregateRating?.reviewCount ? parseInt(data.aggregateRating.reviewCount) : null,
+                    review_count: data.aggregateRating?.reviewCount ? parseInt(data.aggregateRating.reviewCount) : null,
                     seller: offers.offeredBy || offers.seller?.name,
-                    originalPrice: offers.priceSpecification?.price ? parseFloat(offers.priceSpecification.price) : null
+                    original_price: offers.priceSpecification?.price ? parseFloat(offers.priceSpecification.price) : null
                 };
             }
         } catch (e) {

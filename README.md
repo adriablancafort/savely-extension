@@ -56,7 +56,7 @@ Save Time and Money — Instantly Compare Prices and Find Better Deals from Othe
    npm run build
    ```
 
-3. Load the `dist/` folder as an unpacked extension in Chrome
+3. Load the `package/` folder as an unpacked extension in Chrome
 
 4. Visit any website to test the extension
 
@@ -68,4 +68,4 @@ Save Time and Money — Instantly Compare Prices and Find Better Deals from Othe
 
 3. Click **"Load unpacked"**
 
-4. Select the folder where you have your extension bundle. In this case `dev/` for development and `dist/` for production
+4. Select the folder where you have your extension bundle. In this case `dev/` for development and `package/` for production

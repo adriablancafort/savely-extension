@@ -20,6 +20,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     build: {
+      outDir: "package",
       rollupOptions: {
         input: "src/main.js",
         output: {

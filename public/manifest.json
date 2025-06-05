@@ -15,8 +15,7 @@
   "content_scripts": [
     {
       "matches": ["https://*/*"],
-      "js": ["script.js"],
-      "run_at": "document_start"
+      "js": ["script.js"]
     }
   ],
   "permissions": ["storage"],

@@ -29,7 +29,7 @@ export function www_pccomponentes_com(url) {
                     availability: offers.availability?.replace('https://schema.org/', '') || null,
                     rating: data.aggregateRating?.ratingValue ? parseFloat(data.aggregateRating.ratingValue) : null,
                     review_count: data.aggregateRating?.reviewCount ? parseInt(data.aggregateRating.reviewCount) : null,
-                    seller: offers.offeredBy,
+                    seller: offers.offeredBy?.name,
                     original_price: offers.priceSpecification?.price ? parseFloat(offers.priceSpecification.price) : null
                 };
             }

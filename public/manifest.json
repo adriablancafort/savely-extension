@@ -9,6 +9,9 @@
     "48": "images/icon.png",
     "128": "images/icon.png"
   },
+  "background": {
+    "service_worker": "worker.js"
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],

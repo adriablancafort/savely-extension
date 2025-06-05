@@ -1,11 +1,15 @@
 export async function getLocale() {
-    const stored = await chrome.storage.local.get(['userLocale']);
+    try {
+        const stored = await chrome.storage.local.get(['userLocale']);
 
-    if (stored.userLocale) return stored.userLocale;
+        if (stored.userLocale) return stored.userLocale;
 
-    const locale = await fetchLocale();
-    if (locale) await chrome.storage.local.set({ userLocale: locale });
-    return locale;
+        const locale = await fetchLocale();
+        if (locale) await chrome.storage.local.set({ userLocale: locale });
+        return locale;
+    } catch (error) {
+        return await fetchLocale();
+    }
 }
 
 async function fetchLocale() {

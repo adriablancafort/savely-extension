@@ -24,7 +24,7 @@
 
     <div class="prices">
       {#each data.prices as price}
-        <PriceCard price={price} currentPrice={data.currentPrice} />
+        <PriceCard {price} />
       {/each}
     </div>
   </div>
@@ -51,7 +51,7 @@
 
   .title {
     margin-left: 8px;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 16px;
   }
 

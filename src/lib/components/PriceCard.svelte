@@ -1,21 +1,16 @@
 <script>
-    let { price, currentPrice } = $props();
-    
-    const priceNum = parseFloat(price.price.replace(/[€,]/g, ''));
-    const savings = Math.round(currentPrice - priceNum);
+  let { price } = $props();
 </script>
 
 <a href={price.url} target="_blank">
-    <div class="price-card">
-        <img src={price.retailer_icon_url} alt="Icon" width="24" height="24" />
-        <span class="title">{price.title}</span>
-        <div class="price-section">
-            {#if savings > 0}
-                <span class="savings-badge">-{savings}€</span>
-            {/if}
-            <span class="price">{price.price}</span>
-        </div>
+  <div class="price-card">
+    <img src={price.retailer_icon_url} alt="Icon" width="24" height="24" />
+    <span class="title">{price.title}</span>
+    <div class="price">
+      <span class="savings-badge">-{price.savings}</span>
+      <span>{price.price}</span>
     </div>
+  </div>
 </a>
 
 <style>
@@ -47,23 +42,20 @@
   }
 
   .price {
-    font-size: 16px;
-  }
-
-  .price-section {
     margin-left: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    font-size: 16px;
   }
 
   .savings-badge {
-    padding: 1px 5px;
-    border-radius: 4px;
-    background-color: red;
     color: white;
+    background-color: red;
+    padding: 1px 6px;
+    border-radius: 99px;
+    margin-bottom: 2px;
     font-size: 11px;
     font-weight: 600;
-    margin-bottom: 3px;
   }
 </style>

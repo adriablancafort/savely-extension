@@ -19,7 +19,7 @@ async function mountShadowRoot() {
     const regular = chrome.runtime.getURL('fonts/Inter-Regular.woff2');
     const bold = chrome.runtime.getURL('fonts/Inter-SemiBold.woff2');
     document.fonts.add(new FontFace('Inter', `url(${regular})`, { weight: '400' }));
-    document.fonts.add(new FontFace('Inter', `url(${bold})`, { weight: '700' }));
+    document.fonts.add(new FontFace('Inter', `url(${bold})`, { weight: '600' }));
   } else {
     const styles = document.createElement('style');
     const css = await import('./app.css?raw');

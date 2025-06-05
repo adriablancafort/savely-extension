@@ -1,3 +1,4 @@
+import { getLocale } from './locale.js';
 import { www_mediamarkt_es } from './extractors/www_mediamarkt_es.js';
 import { www_tradeinn_com } from './extractors/www_tradeinn_com.js';
 import { www_pccomponentes_com } from './extractors/www_pccomponentes_com.js';
@@ -14,26 +15,27 @@ const extractors = {
 export async function getPrices(currentUrl) {
   const hostname = new URL(currentUrl).hostname;
   const extractor = extractors[hostname] || generic;
-  
   if (!extractor) return null; // retailer not supported
 
   const productData = extractor(currentUrl);
-  
   if (!productData) return null; // not a product page
 
-  return await fetchPrices(productData);
+  const locale = await getLocale();
+  if (!locale) return null; // failed to fetch locale
+
+  return await fetchPrices({ ...productData, ...locale });
 }
 
-async function fetchPrices(productData) {
+async function fetchPrices(priceRequest) {
   try {
     const apiUrl = import.meta.env.VITE_API_URL;
     const response = await fetch(`${apiUrl}/v1/prices`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(productData)
+      body: JSON.stringify(priceRequest)
     });
-    
-    if (!response.ok) return null; // invalid response
+
+    if (!response.ok) throw new Error("Failed to fetch prices");
 
     return await response.json();
   } catch (e) {

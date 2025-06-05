@@ -30,6 +30,7 @@ Save Time and Money — Instantly Compare Prices and Find Better Deals from Othe
 4. Create a `.env` file at the root of the project and add the following environment variables:
    ```env
    VITE_API_URL=
+   VITE_LOCALE_URL=
    VITE_ICON_URL=
    ```
 

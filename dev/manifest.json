@@ -2,6 +2,7 @@
   "name": "Price Comparison Dev",
   "version": "0",
   "manifest_version": 3,
+  "permissions": ["storage"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],

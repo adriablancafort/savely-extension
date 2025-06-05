@@ -7,7 +7,8 @@ export default defineConfig({
       input: "src/lib/external/main.js",
       output: {
         entryFileNames: "module.js"
-      }
+      },
+      preserveEntrySignatures: 'strict'
     }
   },
   publicDir: false

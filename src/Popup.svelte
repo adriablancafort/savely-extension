@@ -61,6 +61,26 @@
   }
 
   .prices {
-    padding: 8px 0;
+    padding-top: 8px;
+    margin-bottom: 16px;
+    max-height: 165px;
+    overflow-y: auto;
+  }
+
+  .prices::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .prices::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .prices::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 3px;
+  }
+
+  .prices::-webkit-scrollbar-thumb:hover {
+    background-color: #9ca3af;
   }
 </style>

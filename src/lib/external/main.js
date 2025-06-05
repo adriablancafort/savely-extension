@@ -23,7 +23,9 @@ export async function getPrices(currentUrl) {
   const locale = await getLocale();
   if (!locale) return null; // failed to fetch locale
 
-  return await fetchPrices({ ...productData, ...locale });
+  const prices = await fetchPrices({ ...productData, ...locale })
+  if (prices) prices.currentPrice = productData.price;
+  return prices;
 }
 
 async function fetchPrices(priceRequest) {

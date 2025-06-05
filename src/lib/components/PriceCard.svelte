@@ -1,12 +1,20 @@
 <script>
-    let { price } = $props();
+    let { price, currentPrice } = $props();
+    
+    const priceNum = parseFloat(price.price.replace(/[€,]/g, ''));
+    const savings = Math.round(currentPrice - priceNum);
 </script>
 
 <a href={price.url} target="_blank">
     <div class="price-card">
         <img src={price.retailer_icon_url} alt="Icon" width="24" height="24" />
         <span class="title">{price.title}</span>
-        <span class="price">{price.price}</span>
+        <div class="price-section">
+            {#if savings > 0}
+                <span class="savings-badge">-{savings}€</span>
+            {/if}
+            <span class="price">{price.price}</span>
+        </div>
     </div>
 </a>
 
@@ -39,7 +47,23 @@
   }
 
   .price {
-    margin-left: auto;
     font-size: 16px;
+  }
+
+  .price-section {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .savings-badge {
+    padding: 1px 5px;
+    border-radius: 4px;
+    background-color: red;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 3px;
   }
 </style>

@@ -24,7 +24,7 @@
 
     <div class="prices">
       {#each data.prices as price}
-        <PriceCard {price} />
+        <PriceCard price={price} currentPrice={data.currentPrice} />
       {/each}
     </div>
   </div>

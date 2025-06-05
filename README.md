@@ -56,9 +56,14 @@ Save Time and Money — Instantly Compare Prices and Find Better Deals from Othe
    npm run build
    ```
 
-3. Load the `package/` folder as an unpacked extension in Chrome
+   Load the `package/` folder as an unpacked extension in Chrome
 
-4. Visit any website to test the extension
+3. Or create a production bundle and zip it for distribution:
+   ```bash
+   npm run package
+   ```
+   
+   This will create a `package.zip` file ready for Chrome Web Store submission.
 
 ## Loading the Extension in Chrome
 

@@ -20,10 +20,10 @@ export async function getPrices(currentUrl) {
   const productData = extractor(currentUrl);
   if (!productData) return null; // not a product page
 
-  const locale = await getLocale();
-  if (!locale) return null; // failed to fetch locale
+  const country_code = await getLocale();
+  if (!country_code) return null; // failed to fetch locale
 
-  return await fetchPrices({ ...productData, ...locale });
+  return await fetchPrices({ ...productData, country_code });
 }
 
 async function fetchPrices(priceRequest) {

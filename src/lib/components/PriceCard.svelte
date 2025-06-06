@@ -59,7 +59,7 @@
     background-color: red;
     padding: 1px 6px;
     border-radius: 99px;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     font-size: 11px;
     font-weight: 600;
   }

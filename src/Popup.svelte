@@ -61,9 +61,9 @@
   }
 
   .prices {
-    padding-top: 8px;
-    margin-bottom: 16px;
-    max-height: 165px;
+    padding-top: 6px;
+    margin-bottom: 12px;
+    max-height: 158px;
     overflow-y: auto;
   }
 

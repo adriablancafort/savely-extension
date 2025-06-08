@@ -1,8 +1,8 @@
 # Price Comparison - Find Lower Prices Instantly
 
-Save Time and Money — Instantly Compare Prices and Find Better Deals from Other Sites as you Browse!
+Save Time and Money - Compare Prices Instantly and find Better Deals as you browse!
 
-<img width="1461" alt="Screenshot 2025-05-26 at 01 05 23" src="https://github.com/user-attachments/assets/148350d0-ae16-4ae0-b4a8-7b9feb6f67ba" />
+![Price Comparison Extension](https://github.com/user-attachments/assets/5ffdcf4c-e1e5-4a58-97cd-68786ccab1a4)
 
 ## Features
 

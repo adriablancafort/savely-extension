@@ -1,25 +1,25 @@
 <script>
   let { price } = $props();
+  
+  const openLink = () => window.open(price.url, '_blank');
 </script>
 
-<a href={price.url} target="_blank">
-  <div class="price-card">
-    <img src={price.retailer_icon_url} alt="Icon" width="24" height="24" />
-    <span class="title">{price.title}</span>
-    <div class="price-container">
-      <span class="savings-badge">-{price.savings}</span>
-      <span class="price">{price.price}</span>
-    </div>
+<button class="price-card" onclick={openLink}>
+  <img src={price.retailer_icon_url} alt="Icon" width="24" height="24" />
+  <span class="title">{price.title}</span>
+  <div class="price-container">
+    <span class="savings-badge">-{price.savings}</span>
+    <span class="price">{price.price}</span>
   </div>
-</a>
+</button>
 
 <style>
   .price-card {
-    list-style: none;
     cursor: pointer;
     padding: 8px 16px 8px 12px;
     display: flex;
     align-items: center;
+    text-align: left;
   }
 
   .title {

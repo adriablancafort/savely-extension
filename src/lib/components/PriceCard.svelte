@@ -1,4 +1,6 @@
 <script>
+  import { formatPrice } from '$lib/utils.js';
+
   let { price } = $props();
   
   const openLink = () => window.open(price.url, '_blank');
@@ -8,8 +10,10 @@
   <img src={price.retailer_icon_url} alt="Icon" width="24" height="24" />
   <span class="title">{price.title}</span>
   <div class="price-container">
-    <span class="savings-badge">-{price.savings}</span>
-    <span class="price">{price.price}</span>
+    {#if price.savings > 0}
+      <span class="savings-badge">-{formatPrice(price.savings, price.currency, 0)}</span>
+    {/if}
+    <span class="price">{formatPrice(price.price, price.currency, 2)}</span>
   </div>
 </button>
 

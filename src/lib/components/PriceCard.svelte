@@ -24,6 +24,7 @@
     display: flex;
     align-items: center;
     text-align: left;
+    width: 100%;
   }
 
   .title {

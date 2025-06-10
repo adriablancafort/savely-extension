@@ -1,4 +1,4 @@
-import { getLocale } from './locale.js';
+import { getLocale } from '$lib/locale.js';
 import { www_mediamarkt_es } from './extractors/www_mediamarkt_es.js';
 import { www_tradeinn_com } from './extractors/www_tradeinn_com.js';
 import { www_pccomponentes_com } from './extractors/www_pccomponentes_com.js';

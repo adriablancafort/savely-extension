@@ -1,7 +1,7 @@
 import { mount, unmount } from 'svelte';
 import './app.css';
 import Popup from './Popup.svelte';
-import { getPrices } from "$lib/external/main.js";
+import { getPrices } from "$lib/main.js";
 
 async function mountShadowRoot() {
   const container = document.createElement('price-comparison');

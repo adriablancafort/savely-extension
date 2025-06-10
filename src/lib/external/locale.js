@@ -19,7 +19,8 @@ async function fetchLocale() {
 
         if (!response.ok) throw new Error("Failed to fetch locale");
 
-        return await response.text();
+        const text = await response.text();
+        return text.toLowerCase(); // ensure lowercase
     } catch (error) {
         return null; // error fetching locale
     }

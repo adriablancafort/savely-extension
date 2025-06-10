@@ -58,3 +58,9 @@ const observer = new MutationObserver(async () => {
 });
 
 observer.observe(document, { subtree: true, childList: true });
+
+chrome.runtime.onMessage.addListener((message) => {
+  if (message.action === 'togglePopup' && popup) {
+    popup.togglePopup();
+  }
+});

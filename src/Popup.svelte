@@ -4,6 +4,10 @@
   let { data } = $props();
 
   let show = $state(true);
+
+  export function togglePopup() {
+    show = !show;
+  }
   
   const logoUrl = import.meta.env.PROD ? chrome.runtime.getURL('images/icon.png') : import.meta.env.VITE_ICON_URL;
   const popupTitle = import.meta.env.PROD ? chrome.i18n.getMessage("popupTitle") : "Better prices found!";

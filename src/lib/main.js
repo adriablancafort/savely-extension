@@ -1,21 +1,29 @@
 import { getLocale } from '$lib/locale.js';
-import { www_mediamarkt_es } from './extractors/www_mediamarkt_es.js';
-import { www_tradeinn_com } from './extractors/www_tradeinn_com.js';
-import { www_pccomponentes_com } from './extractors/www_pccomponentes_com.js';
-import { www_amazon_es } from './extractors/www_amazon_es.js';
-import { www_elcorteingles_es } from './extractors/www_elcorteingles_es.js';
+import { amazon } from './extractors/amazon.js';
 import { www_walmart_com } from './extractors/www_walmart_com.js';
 import { www_bestbuy_com } from './extractors/www_bestbuy_com.js';
+import { www_mediamarkt_es } from './extractors/www_mediamarkt_es.js';
+import { www_elcorteingles_es } from './extractors/www_elcorteingles_es.js';
+import { www_pccomponentes_com } from './extractors/www_pccomponentes_com.js';
+import { www_tradeinn_com } from './extractors/www_tradeinn_com.js';
 import { generic } from './extractors/generic.js';
 
 const extractors = {
-  'www.mediamarkt.es': www_mediamarkt_es,
-  'www.tradeinn.com': www_tradeinn_com,
-  'www.pccomponentes.com': www_pccomponentes_com,
-  'www.amazon.es': www_amazon_es,
-  'www.elcorteingles.es': www_elcorteingles_es,
+  'www.amazon.es': amazon,
+  'www.amazon.com': amazon,
+  'www.amazon.co.uk': amazon,
+  'www.amazon.de': amazon,
+  'www.amazon.fr': amazon,
+  'www.amazon.it': amazon,
+  'www.amazon.nl': amazon,
+  'www.amazon.se': amazon,
+  'www.amazon.pl': amazon,
   'www.walmart.com': www_walmart_com,
   'www.bestbuy.com': www_bestbuy_com,
+  'www.mediamarkt.es': www_mediamarkt_es,
+  'www.elcorteingles.es': www_elcorteingles_es,
+  'www.pccomponentes.com': www_pccomponentes_com,
+  'www.tradeinn.com': www_tradeinn_com,
 };
 
 export async function getPrices(currentUrl) {

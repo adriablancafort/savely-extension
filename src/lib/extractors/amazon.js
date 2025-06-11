@@ -1,4 +1,4 @@
-export function www_amazon_es(url) {
+export function amazon(url) {
     try {
         // Extract title
         const titleElement = document.querySelector('#productTitle');
@@ -15,7 +15,11 @@ export function www_amazon_es(url) {
 
         const priceWhole = priceElement.textContent.trim();
         const priceFraction = document.querySelector('.priceToPay .a-price-fraction')?.textContent.trim() || '00';
-        const price = parseFloat(`${priceWhole}.${priceFraction}`);
+        
+        // Handle different price formats - check if whole part already contains decimal
+        const price = priceWhole.includes('.') 
+            ? parseFloat(`${priceWhole}${priceFraction}`)
+            : parseFloat(`${priceWhole}.${priceFraction}`);
 
         // Clean URL - remove everything after /dp/{ASIN}
         const cleanUrl = url.match(/^(.*\/dp\/[A-Z0-9]{10})/)?.[1] || url;

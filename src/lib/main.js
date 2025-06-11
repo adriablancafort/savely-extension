@@ -5,6 +5,7 @@ import { www_pccomponentes_com } from './extractors/www_pccomponentes_com.js';
 import { www_amazon_es } from './extractors/www_amazon_es.js';
 import { www_elcorteingles_es } from './extractors/www_elcorteingles_es.js';
 import { www_walmart_com } from './extractors/www_walmart_com.js';
+import { www_bestbuy_com } from './extractors/www_bestbuy_com.js';
 import { generic } from './extractors/generic.js';
 
 const extractors = {
@@ -14,6 +15,7 @@ const extractors = {
   'www.amazon.es': www_amazon_es,
   'www.elcorteingles.es': www_elcorteingles_es,
   'www.walmart.com': www_walmart_com,
+  'www.bestbuy.com': www_bestbuy_com,
 };
 
 export async function getPrices(currentUrl) {

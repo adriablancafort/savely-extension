@@ -24,21 +24,8 @@ export function www_amazon_es(url) {
             url: cleanUrl,
             title: title,
             price: price,
-
-            // todo: implement extract missing fields
-            currency: null,
-            sku: null,
-            brand: null,
-            category: null,
-            image: null,
-            condition: null,
-            availability: null,
-            rating: null,
-            review_count: null,
-            seller: null,
-            original_price: null
         };
-    } catch (e) {
+    } catch {
         return null;
     }
 }

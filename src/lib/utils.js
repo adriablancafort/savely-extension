@@ -1,3 +1,15 @@
+export function* parseJsonLdScripts() {
+    const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+    
+    for (const script of scripts) {
+        try {
+            yield JSON.parse(script.textContent);
+        } catch {
+            // invalid JSON
+        }
+    }
+}
+
 export function formatPrice(amount, currencyCode, decimals) {
     const localeMap = {
         'USD': 'en-US',

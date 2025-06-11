@@ -2,13 +2,19 @@ import { parseJsonLdScripts } from '$lib/utils.js';
 
 export function generic(url) {
     for (const data of parseJsonLdScripts()) {
-        if (data['@type'] === 'Product' && data.name && data.offers) {
-            const offers = Array.isArray(data.offers) ? data.offers[0] : data.offers;
+        if ((data['@type'] === 'Product' || data['@type'] === 'product') && data.name && data.offers) {
+            let offer;
+            
+            if (Array.isArray(data.offers)) {
+                offer = data.offers[0];
+            } else {
+                offer = data.offers;
+            }
             
             return {
-                url: offers.url || url,
+                url: offer.url || data.url || url,
                 title: data.name,
-                price: parseFloat(offers.price)
+                price: parseFloat(offer.price)
             };
         }
     }

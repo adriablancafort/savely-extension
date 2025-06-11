@@ -13,7 +13,8 @@ export function formatPrice(amount, currencyCode, decimals) {
     let price = new Intl.NumberFormat(locale, {
         style: 'currency',
         currency: currencyCode,
-        minimumFractionDigits: decimals
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
     }).format(amount);
 
     // remove spaces from the formatted price

@@ -1,6 +1,6 @@
 import { parseJsonLdScripts } from '$lib/utils.js';
 
-export function www_mediamarkt_es(url) {
+export function mediamarkt(url) {
     for (const data of parseJsonLdScripts()) {
         if (data['@type'] === 'BuyAction' && data.object && data.object['@type'] === 'Product') {
             const product = data.object;

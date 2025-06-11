@@ -2,7 +2,7 @@ import { getLocale } from '$lib/locale.js';
 import { amazon } from './extractors/amazon.js';
 import { www_walmart_com } from './extractors/www_walmart_com.js';
 import { www_bestbuy_com } from './extractors/www_bestbuy_com.js';
-import { www_mediamarkt_es } from './extractors/www_mediamarkt_es.js';
+import { mediamarkt } from './extractors/mediamarkt.js';
 import { www_elcorteingles_es } from './extractors/www_elcorteingles_es.js';
 import { www_pccomponentes_com } from './extractors/www_pccomponentes_com.js';
 import { www_tradeinn_com } from './extractors/www_tradeinn_com.js';
@@ -20,7 +20,17 @@ const extractors = {
   'www.amazon.pl': amazon,
   'www.walmart.com': www_walmart_com,
   'www.bestbuy.com': www_bestbuy_com,
-  'www.mediamarkt.es': www_mediamarkt_es,
+  'www.mediamarkt.de': mediamarkt,
+  'www.mediamarkt.at': mediamarkt,
+  'www.mediamarkt.be': mediamarkt,
+  'www.mediamarkt.nl': mediamarkt,
+  'www.mediamarkt.pl': mediamarkt,
+  'www.mediamarkt.ch': mediamarkt,
+  'www.mediamarkt.hu': mediamarkt,
+  'www.mediaworld.it': mediamarkt,
+  'www.mediamarkt.es': mediamarkt,
+  'www.mediamarkt.com.tr': mediamarkt,
+  'www.mediamarkt.lu': mediamarkt,
   'www.elcorteingles.es': www_elcorteingles_es,
   'www.pccomponentes.com': www_pccomponentes_com,
   'www.tradeinn.com': www_tradeinn_com,
@@ -29,7 +39,6 @@ const extractors = {
 export async function getPrices(currentUrl) {
   const hostname = new URL(currentUrl).hostname;
   const extractor = extractors[hostname] || generic;
-  if (!extractor) return null; // retailer not supported
 
   const productData = extractor(currentUrl);
   if (!productData) return null; // not a product page

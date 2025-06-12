@@ -12,6 +12,7 @@ import { ebay } from './extractors/ebay.js';
 import { www_etsy_com } from './extractors/www_etsy_com.js';
 import { shop_app } from './extractors/shop_app.js';
 import { allegro } from './extractors/allegro.js';
+import { wayfair } from './extractors/wayfair.js';
 import { generic } from './extractors/generic.js';
 
 const extractors = {
@@ -92,6 +93,9 @@ const extractors = {
   'articulo.mercadolibre.com.sv': mercadolibre,
   'articulo.mercadolibre.com.uy': mercadolibre,
   'articulo.mercadolibre.com.ve': mercadolibre,
+  'www.wayfair.com': wayfair,
+  'www.wayfair.ca': wayfair,
+  'www.wayfair.co.uk': wayfair,
 };
 
 export async function getPrices(currentUrl) {

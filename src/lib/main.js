@@ -10,11 +10,13 @@ import { www_tradeinn_com } from './extractors/www_tradeinn_com.js';
 import { mercadolibre } from './extractors/mercadolibre.js';
 import { ebay } from './extractors/ebay.js';
 import { www_etsy_com } from './extractors/www_etsy_com.js';
+import { shop_app } from './extractors/shop_app.js';
 import { generic } from './extractors/generic.js';
 
 const extractors = {
   'www.amazon.es': amazon,
   'www.amazon.com': amazon,
+  'www.amazon.ca': amazon,
   'www.amazon.co.uk': amazon,
   'www.amazon.de': amazon,
   'www.amazon.fr': amazon,
@@ -22,6 +24,7 @@ const extractors = {
   'www.amazon.nl': amazon,
   'www.amazon.se': amazon,
   'www.amazon.pl': amazon,
+  'www.amazon.in': amazon,
   'www.aliexpress.com': aliexpress,
   'es.aliexpress.com': aliexpress,
   'fr.aliexpress.com': aliexpress,
@@ -49,6 +52,7 @@ const extractors = {
   'www.ebay.com.sg': ebay,
   'www.ebay.ph': ebay,
   'www.etsy.com': www_etsy_com,
+  'shop.app': shop_app,
   'www.walmart.com': www_walmart_com,
   'www.bestbuy.com': www_bestbuy_com,
   'www.mediamarkt.de': mediamarkt,

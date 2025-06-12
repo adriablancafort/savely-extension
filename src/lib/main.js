@@ -11,6 +11,7 @@ import { mercadolibre } from './extractors/mercadolibre.js';
 import { ebay } from './extractors/ebay.js';
 import { www_etsy_com } from './extractors/www_etsy_com.js';
 import { shop_app } from './extractors/shop_app.js';
+import { allegro } from './extractors/allegro.js';
 import { generic } from './extractors/generic.js';
 
 const extractors = {
@@ -53,6 +54,10 @@ const extractors = {
   'www.ebay.ph': ebay,
   'www.etsy.com': www_etsy_com,
   'shop.app': shop_app,
+  'allegro.pl': allegro,
+  'allegro.cz': allegro,
+  'allegro.sk': allegro,
+  'allegro.hu': allegro,
   'www.walmart.com': www_walmart_com,
   'www.bestbuy.com': www_bestbuy_com,
   'www.mediamarkt.de': mediamarkt,
@@ -94,6 +99,7 @@ export async function getPrices(currentUrl) {
   const extractor = extractors[hostname] || generic;
 
   const productData = extractor(currentUrl);
+  console.log(productData);
   if (!productData) return null; // not a product page
 
   const country_code = await getLocale();

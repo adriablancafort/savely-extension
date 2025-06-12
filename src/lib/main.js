@@ -7,6 +7,7 @@ import { mediamarkt } from './extractors/mediamarkt.js';
 import { www_elcorteingles_es } from './extractors/www_elcorteingles_es.js';
 import { www_pccomponentes_com } from './extractors/www_pccomponentes_com.js';
 import { www_tradeinn_com } from './extractors/www_tradeinn_com.js';
+import { mercadolibre } from './extractors/mercadolibre.js';
 import { generic } from './extractors/generic.js';
 
 const extractors = {
@@ -43,6 +44,24 @@ const extractors = {
   'www.elcorteingles.es': www_elcorteingles_es,
   'www.pccomponentes.com': www_pccomponentes_com,
   'www.tradeinn.com': www_tradeinn_com,
+  'articulo.mercadolibre.com.ar': mercadolibre,
+  'articulo.mercadolibre.com.bo': mercadolibre,
+  'articulo.mercadolivre.com.br': mercadolibre,
+  'articulo.mercadolibre.cl': mercadolibre,
+  'articulo.mercadolibre.com.co': mercadolibre,
+  'articulo.mercadolibre.co.cr': mercadolibre,
+  'articulo.mercadolibre.com.do': mercadolibre,
+  'articulo.mercadolibre.com.ec': mercadolibre,
+  'articulo.mercadolibre.com.gt': mercadolibre,
+  'articulo.mercadolibre.com.hn': mercadolibre,
+  'articulo.mercadolibre.com.mx': mercadolibre,
+  'articulo.mercadolibre.com.ni': mercadolibre,
+  'articulo.mercadolibre.com.pa': mercadolibre,
+  'articulo.mercadolibre.com.py': mercadolibre,
+  'articulo.mercadolibre.com.pe': mercadolibre,
+  'articulo.mercadolibre.com.sv': mercadolibre,
+  'articulo.mercadolibre.com.uy': mercadolibre,
+  'articulo.mercadolibre.com.ve': mercadolibre,
 };
 
 export async function getPrices(currentUrl) {
@@ -50,6 +69,7 @@ export async function getPrices(currentUrl) {
   const extractor = extractors[hostname] || generic;
 
   const productData = extractor(currentUrl);
+  console.log('Product data:', productData);
   if (!productData) return null; // not a product page
 
   const country_code = await getLocale();

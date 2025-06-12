@@ -9,6 +9,7 @@ import { www_pccomponentes_com } from './extractors/www_pccomponentes_com.js';
 import { www_tradeinn_com } from './extractors/www_tradeinn_com.js';
 import { mercadolibre } from './extractors/mercadolibre.js';
 import { ebay } from './extractors/ebay.js';
+import { www_etsy_com } from './extractors/www_etsy_com.js';
 import { generic } from './extractors/generic.js';
 
 const extractors = {
@@ -47,6 +48,7 @@ const extractors = {
   'www.ebay.com.my': ebay,
   'www.ebay.com.sg': ebay,
   'www.ebay.ph': ebay,
+  'www.etsy.com': www_etsy_com,
   'www.walmart.com': www_walmart_com,
   'www.bestbuy.com': www_bestbuy_com,
   'www.mediamarkt.de': mediamarkt,

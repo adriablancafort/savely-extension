@@ -13,6 +13,7 @@ import { www_etsy_com } from './extractors/www_etsy_com.js';
 import { shop_app } from './extractors/shop_app.js';
 import { allegro } from './extractors/allegro.js';
 import { wayfair } from './extractors/wayfair.js';
+import { www_flipkart_com } from './extractors/www_flipkart_com.js';
 import { generic } from './extractors/generic.js';
 
 const extractors = {
@@ -93,6 +94,7 @@ const extractors = {
   'articulo.mercadolibre.com.sv': mercadolibre,
   'articulo.mercadolibre.com.uy': mercadolibre,
   'articulo.mercadolibre.com.ve': mercadolibre,
+  'www.flipkart.com': www_flipkart_com,
   'www.wayfair.com': wayfair,
   'www.wayfair.ca': wayfair,
   'www.wayfair.co.uk': wayfair,
@@ -103,7 +105,6 @@ export async function getPrices(currentUrl) {
   const extractor = extractors[hostname] || generic;
 
   const productData = extractor(currentUrl);
-  console.log(productData);
   if (!productData) return null; // not a product page
 
   const country_code = await getLocale();

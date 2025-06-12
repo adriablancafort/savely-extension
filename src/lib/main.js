@@ -1,5 +1,6 @@
 import { getLocale } from '$lib/locale.js';
 import { amazon } from './extractors/amazon.js';
+import { aliexpress } from './extractors/aliexpress.js';
 import { www_walmart_com } from './extractors/www_walmart_com.js';
 import { www_bestbuy_com } from './extractors/www_bestbuy_com.js';
 import { mediamarkt } from './extractors/mediamarkt.js';
@@ -18,6 +19,14 @@ const extractors = {
   'www.amazon.nl': amazon,
   'www.amazon.se': amazon,
   'www.amazon.pl': amazon,
+  'www.aliexpress.com': aliexpress,
+  'es.aliexpress.com': aliexpress,
+  'fr.aliexpress.com': aliexpress,
+  'de.aliexpress.com': aliexpress,
+  'it.aliexpress.com': aliexpress,
+  'nl.aliexpress.com': aliexpress,
+  'pt.aliexpress.com': aliexpress,
+  'pl.aliexpress.com': aliexpress,
   'www.walmart.com': www_walmart_com,
   'www.bestbuy.com': www_bestbuy_com,
   'www.mediamarkt.de': mediamarkt,

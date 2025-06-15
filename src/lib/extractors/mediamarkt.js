@@ -4,7 +4,7 @@ export function mediamarkt(url) {
     for (const data of parseJsonLdScripts()) {
         if (data['@type'] === 'BuyAction' && data.object && data.object['@type'] === 'Product') {
             const product = data.object;
-            const offers = product.offers;
+            const offers = Array.isArray(product.offers) ? product.offers[0] : product.offers;
             
             return {
                 url: product.url,

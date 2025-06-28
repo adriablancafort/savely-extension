@@ -1,6 +1,6 @@
 <script>
   import PriceCard from '$lib/components/PriceCard.svelte';
-  import { draggable } from '@neodrag/svelte';
+  import { drag } from '$lib/drag.js';
 
   let { data } = $props();
 
@@ -15,7 +15,7 @@
 </script>
 
 {#if show && data.prices.length > 0}
-  <div class="popup slide-in" use:draggable>
+  <div class="popup slide-in" use:drag>
     <div class="top">
       <img src={logoUrl} alt="Logo" width="24" height="24" />
       <span class="title">{popupTitle}</span>
@@ -84,9 +84,11 @@
   .prices::-webkit-scrollbar-thumb {
     background-color: #d1d5db;
     border-radius: 3px;
+    cursor: pointer;
   }
 
   .prices::-webkit-scrollbar-thumb:hover {
     background-color: #9ca3af;
+    cursor: pointer;
   }
 </style>

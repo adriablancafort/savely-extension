@@ -21,16 +21,16 @@ img {
 }
 
 .slide-in {
-    animation: slide-in 0.3s ease-out;
+    animation: slide-in 0.2s ease-out;
 }
 
 @keyframes slide-in {
     from {
-        transform: translateX(20%);
+        transform: translateY(8%);
         opacity: 0.2;
     }
     to {
-        transform: translateX(0);
+        transform: translateY(0);
         opacity: 1;
     }
 }

@@ -6,10 +6,8 @@ export function www_flipkart_com(url) {
         if (data['@type'] === 'Product') {
             const offers = data.offers;
 
-            const cleanUrl = url.split('?')[0];
-            
             return {
-                url: cleanUrl,
+                url: url,
                 title: data.name,
                 price: parseFloat(offers?.price),
                 currency_code: offers?.priceCurrency,

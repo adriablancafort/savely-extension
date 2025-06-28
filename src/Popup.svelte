@@ -46,6 +46,10 @@
     border-radius: 12px;
     z-index: 2147483647;
     width: 280px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
   }
 
   .top {

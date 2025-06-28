@@ -1,5 +1,6 @@
 <script>
   import PriceCard from '$lib/components/PriceCard.svelte';
+  import { draggable } from '@neodrag/svelte';
 
   let { data } = $props();
 
@@ -14,7 +15,7 @@
 </script>
 
 {#if show && data.prices.length > 0}
-  <div class="popup slide-in">
+  <div class="popup slide-in" use:draggable>
     <div class="top">
       <img src={logoUrl} alt="Logo" width="24" height="24" />
       <span class="title">{popupTitle}</span>
@@ -39,6 +40,7 @@
     position: fixed;
     bottom: 12px;
     right: 12px;
+    cursor: move;
     background-color: white;
     box-shadow: 0 0px 6px rgba(0, 0, 0, 0.25);
     border-radius: 12px;

@@ -9,6 +9,7 @@
     "package": "npm run build && zip -r package.zip package/"
   },
   "devDependencies": {
+    "@neodrag/svelte": "^2.3.3",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "svelte": "^5.32.1",
     "vite": "^6.3.5"

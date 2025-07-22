@@ -1,8 +1,8 @@
-# Price Comparison - Find Lower Prices Instantly
+# Savely - Price Comparison, Find Lower Prices
 
 Save Time and Money - Compare Prices Instantly and find Better Deals as you browse!
 
-![Price Comparison Extension](https://github.com/user-attachments/assets/5ffdcf4c-e1e5-4a58-97cd-68786ccab1a4)
+![Savely Extension](https://github.com/user-attachments/assets/5ffdcf4c-e1e5-4a58-97cd-68786ccab1a4)
 
 ## Features
 
@@ -21,7 +21,7 @@ Save Time and Money - Compare Prices Instantly and find Better Deals as you brow
 1. Clone or download this repository
 2. Navigate to the project directory:
    ```bash
-   cd pricecomparison-extension
+   cd savely-extension
    ```
 3. Install dependencies:
    ```bash

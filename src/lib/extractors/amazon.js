@@ -5,21 +5,15 @@ export function amazon(url) {
         if (!titleElement) return null;
         const title = titleElement.textContent.trim();
 
-        // Extract price - try main price first
-        let priceElement = document.querySelector('.priceToPay .a-price-whole');
-        if (!priceElement) {
-            // Fallback to other price selectors
-            priceElement = document.querySelector('.a-price-whole');
-        }
+        // Extract price elements
+        const priceElement = document.querySelector('.priceToPay .a-price-whole');
         if (!priceElement) return null;
-
-        const priceWhole = priceElement.textContent.trim();
+        let priceWhole = priceElement.textContent.trim();
+        
         const priceFraction = document.querySelector('.priceToPay .a-price-fraction')?.textContent.trim() || '00';
         
-        // Handle different price formats - check if whole part already contains decimal
-        const price = priceWhole.includes('.') 
-            ? parseFloat(`${priceWhole}${priceFraction}`)
-            : parseFloat(`${priceWhole}.${priceFraction}`);
+        priceWhole = priceWhole.replace(/,/g, '');
+        const price = parseFloat(priceWhole + '.' + priceFraction);
 
         // Clean URL - remove everything after /dp/{ASIN}
         const cleanUrl = url.match(/^(.*\/dp\/[A-Z0-9]{10})/)?.[1] || url;

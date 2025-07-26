@@ -110,7 +110,15 @@ export async function getPrices(currentUrl) {
   const country_code = await getLocale();
   if (!country_code) return null; // failed to fetch locale
 
-  return await fetchPrices({ ...productData, country_code });
+  const response = await fetchPrices({ ...productData, country_code });
+  if (!response) return null; // no response
+
+  return {
+    prices: response.prices.map(price => ({
+      ...price,
+      savings: productData.price - price.price
+    }))
+  };
 }
 
 async function fetchPrices(priceRequest) {

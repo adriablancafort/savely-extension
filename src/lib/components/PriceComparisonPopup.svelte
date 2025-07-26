@@ -1,5 +1,5 @@
 <script>
-  import PriceCard from '$lib/components/PriceCard.svelte';
+  import PriceCard from '$lib/components/PriceCOmparisonCard.svelte';
   import { drag } from '$lib/drag.js';
 
   let { data } = $props();

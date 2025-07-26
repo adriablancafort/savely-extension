@@ -1,7 +1,7 @@
 import { mount, unmount } from 'svelte';
 import './app.css';
-import Popup from './Popup.svelte';
-import { getPrices } from "$lib/main.js";
+import PriceComparisonPopup from '$lib/components/PriceComparisonPopup.svelte';
+import { getPrices } from '$lib/pricecomparison.js';
 
 async function mountShadowRoot() {
   const container = document.createElement('price-comparison');
@@ -40,7 +40,7 @@ async function handleNavigation() {
     const data = await getPrices(currentUrl);
     if (data) {
       if (!shadowRoot) await mountShadowRoot();
-      popup = mount(Popup, { target: shadowRoot, props: { data } });
+      popup = mount(PriceComparisonPopup, { target: shadowRoot, props: { data } });
     }
   }, 10);
 }

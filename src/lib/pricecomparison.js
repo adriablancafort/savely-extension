@@ -1,20 +1,20 @@
 import { getLocale } from '$lib/locale.js';
-import { amazon } from './extractors/amazon.js';
-import { aliexpress } from './extractors/aliexpress.js';
-import { www_walmart_com } from './extractors/www_walmart_com.js';
-import { www_bestbuy_com } from './extractors/www_bestbuy_com.js';
-import { mediamarkt } from './extractors/mediamarkt.js';
-import { www_elcorteingles_es } from './extractors/www_elcorteingles_es.js';
-import { www_pccomponentes_com } from './extractors/www_pccomponentes_com.js';
-import { www_tradeinn_com } from './extractors/www_tradeinn_com.js';
-import { mercadolibre } from './extractors/mercadolibre.js';
-import { ebay } from './extractors/ebay.js';
-import { www_etsy_com } from './extractors/www_etsy_com.js';
-import { shop_app } from './extractors/shop_app.js';
-import { allegro } from './extractors/allegro.js';
-import { wayfair } from './extractors/wayfair.js';
-import { www_flipkart_com } from './extractors/www_flipkart_com.js';
-import { generic } from './extractors/generic.js';
+import { amazon } from './product-extractors/amazon.js';
+import { aliexpress } from './product-extractors/aliexpress.js';
+import { www_walmart_com } from './product-extractors/www_walmart_com.js';
+import { www_bestbuy_com } from './product-extractors/www_bestbuy_com.js';
+import { mediamarkt } from './product-extractors/mediamarkt.js';
+import { www_elcorteingles_es } from './product-extractors/www_elcorteingles_es.js';
+import { www_pccomponentes_com } from './product-extractors/www_pccomponentes_com.js';
+import { www_tradeinn_com } from './product-extractors/www_tradeinn_com.js';
+import { mercadolibre } from './product-extractors/mercadolibre.js';
+import { ebay } from './product-extractors/ebay.js';
+import { www_etsy_com } from './product-extractors/www_etsy_com.js';
+import { shop_app } from './product-extractors/shop_app.js';
+import { allegro } from './product-extractors/allegro.js';
+import { wayfair } from './product-extractors/wayfair.js';
+import { www_flipkart_com } from './product-extractors/www_flipkart_com.js';
+import { generic } from './product-extractors/generic.js';
 
 const extractors = {
   'www.amazon.es': amazon,

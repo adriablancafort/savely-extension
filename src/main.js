@@ -30,9 +30,9 @@ async function mountShadowRoot() {
 
 async function handleNavigation() {
   // destroy previous popup instance
-  if (popup) {
-    unmount(popup);
-    popup = null;
+  if (priceComparisonInstance) {
+    unmount(priceComparisonInstance);
+    priceComparisonInstance = null;
   }
 
   setTimeout(async () => {
@@ -46,7 +46,7 @@ async function handleNavigation() {
 }
 
 let shadowRoot;
-let popup;
+let priceComparisonInstance;
 let currentUrl;
 
 const observer = new MutationObserver(async () => {
@@ -60,7 +60,7 @@ const observer = new MutationObserver(async () => {
 observer.observe(document, { subtree: true, childList: true });
 
 chrome.runtime.onMessage.addListener((message) => {
-  if (message.action === 'togglePopup' && popup) {
-    popup.togglePopup();
+  if (message.action === 'iconClicked') {
+    if (priceComparisonInstance) priceComparisonInstance.togglePopup();
   }
 });

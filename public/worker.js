@@ -7,5 +7,5 @@ chrome.runtime.onInstalled.addListener((details) => {
 });
 
 chrome.action.onClicked.addListener((tab) => {
-  chrome.tabs.sendMessage(tab.id, { action: 'togglePopup' });
+  chrome.tabs.sendMessage(tab.id, { action: 'iconClicked' });
 });

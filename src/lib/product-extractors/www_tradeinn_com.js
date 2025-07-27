@@ -2,7 +2,7 @@ import { parseJsonLdScripts } from '$lib/utils.js';
 
 export function www_tradeinn_com(url) {
     for (const data of parseJsonLdScripts()) {
-        if (data['@type'] === 'product' && data.offers && data.offers.length > 0) {
+        if ((data['@type'] === 'Product' || data['@type'] === 'product') && data.offers) {
             const offer = data.offers[0];
             
             return {

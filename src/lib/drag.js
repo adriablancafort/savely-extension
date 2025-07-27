@@ -1,21 +1,22 @@
 import { draggable } from '@neodrag/svelte';
 
-export async function drag(node) {
-  const position = await getPosition();
+export async function drag(node, { key, ...options } = {}) {
+  const position = await getPosition(key);
   
   return draggable(node, {
     position,
     onDragEnd: ({ offsetX, offsetY }) => {
-      setPosition({ x: offsetX, y: offsetY });
-    }
+      setPosition(key, { x: offsetX, y: offsetY });
+    },
+    ...options
   });
 }
 
-async function getPosition() {
+async function getPosition(key) {
   try {
-    const stored = await chrome.storage.local.get(['position']);
+    const stored = await chrome.storage.local.get([key]);
 
-    if (stored.position) return stored.position;
+    if (stored[key]) return stored[key];
 
     return { x: 0, y: 0 };
   } catch (error) {
@@ -23,8 +24,8 @@ async function getPosition() {
   }
 }
 
-async function setPosition(newPosition) {
+async function setPosition(key, newPosition) {
   try {
-    await chrome.storage.local.set({ position: newPosition });
+    await chrome.storage.local.set({ [key]: newPosition });
   } catch (error) {}
 }

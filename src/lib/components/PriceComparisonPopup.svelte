@@ -15,7 +15,7 @@
 </script>
 
 {#if show && data.prices.length > 0}
-  <div class="popup slide-in" use:drag>
+  <div class="popup slide-in" use:drag={{ key: 'pricecomparisonpopup' }}>
     <div class="top">
       <img src={logoUrl} alt="Logo" width="24" height="24" />
       <span class="title">{popupTitle}</span>

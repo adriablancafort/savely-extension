@@ -40,7 +40,7 @@ async function handleNavigation() {
     const data = await getPrices(currentUrl);
     if (data) {
       if (!shadowRoot) await mountShadowRoot();
-      popup = mount(PriceComparisonPopup, { target: shadowRoot, props: { data } });
+      priceComparisonInstance = mount(PriceComparisonPopup, { target: shadowRoot, props: { data } });
     }
   }, 10);
 }

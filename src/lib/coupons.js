@@ -5,7 +5,7 @@ export function shouldShowCouponsPopup(currentUrl) {
   const search = url.search;
 
   const isAmazon = hostname.includes('amazon.');
-  const isCheckoutWithSpc = pathname.includes('/checkout') && (pathname.endsWith('/spc') || search.includes('spc'));
+  const isCheckoutWithSpc = pathname.includes('/checkout') && (pathname.endsWith('/pay') || search.includes('spc'));
   
   return isAmazon && isCheckoutWithSpc;
 }

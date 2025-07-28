@@ -1,7 +1,9 @@
 import { mount, unmount } from 'svelte';
 import './app.css';
 import PriceComparisonPopup from '$lib/components/PriceComparisonPopup.svelte';
+import CouponsPopup from '$lib/components/CouponsPopup.svelte';
 import { getPrices } from '$lib/pricecomparison.js';
+import { shouldShowCouponsPopup } from '$lib/coupons.js';
 
 async function mountShadowRoot() {
   const container = document.createElement('price-comparison');
@@ -29,24 +31,35 @@ async function mountShadowRoot() {
 }
 
 async function handleNavigation() {
-  // destroy previous popup instance
+  // destroy previous popup instances
   if (priceComparisonInstance) {
     unmount(priceComparisonInstance);
     priceComparisonInstance = null;
   }
+  if (couponsInstance) {
+    unmount(couponsInstance);
+    couponsInstance = null;
+  }
 
   setTimeout(async () => {
-    // fetch data and mount popup
     const data = await getPrices(currentUrl);
-    if (data) {
+    if (shouldShowCouponsPopup(currentUrl)) {
       if (!shadowRoot) await mountShadowRoot();
-      priceComparisonInstance = mount(PriceComparisonPopup, { target: shadowRoot, props: { data } });
+      couponsInstance = mount(CouponsPopup, { target: shadowRoot });
+    } else {
+      // fetch data and mount price comparison popup
+      const data = await getPrices(currentUrl);
+      if (data) {
+        if (!shadowRoot) await mountShadowRoot();
+        priceComparisonInstance = mount(PriceComparisonPopup, { target: shadowRoot, props: { data } });
+      }
     }
   }, 10);
 }
 
 let shadowRoot;
 let priceComparisonInstance;
+let couponsInstance;
 let currentUrl;
 
 const observer = new MutationObserver(async () => {
@@ -62,5 +75,6 @@ observer.observe(document, { subtree: true, childList: true });
 chrome.runtime.onMessage.addListener((message) => {
   if (message.action === 'iconClicked') {
     if (priceComparisonInstance) priceComparisonInstance.togglePopup();
+    if (couponsInstance) couponsInstance.togglePopup();
   }
 });

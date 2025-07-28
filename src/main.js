@@ -42,7 +42,6 @@ async function handleNavigation() {
   }
 
   setTimeout(async () => {
-    const data = await getPrices(currentUrl);
     if (shouldShowCouponsPopup(currentUrl)) {
       if (!shadowRoot) await mountShadowRoot();
       couponsInstance = mount(CouponsPopup, { target: shadowRoot });

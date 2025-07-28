@@ -3,6 +3,7 @@ import { amazon } from './product-extractors/amazon.js';
 import { aliexpress } from './product-extractors/aliexpress.js';
 import { www_walmart_com } from './product-extractors/www_walmart_com.js';
 import { www_bestbuy_com } from './product-extractors/www_bestbuy_com.js';
+import { www_target_com } from './product-extractors/www_target_com.js';
 import { mediamarkt } from './product-extractors/mediamarkt.js';
 import { www_elcorteingles_es } from './product-extractors/www_elcorteingles_es.js';
 import { www_pccomponentes_com } from './product-extractors/www_pccomponentes_com.js';
@@ -62,6 +63,7 @@ const extractors = {
   'allegro.hu': allegro,
   'www.walmart.com': www_walmart_com,
   'www.bestbuy.com': www_bestbuy_com,
+  'www.target.com': www_target_com,
   'www.mediamarkt.de': mediamarkt,
   'www.mediamarkt.at': mediamarkt,
   'www.mediamarkt.be': mediamarkt,
@@ -104,7 +106,7 @@ export async function getPrices(currentUrl) {
   const hostname = new URL(currentUrl).hostname;
   const extractor = extractors[hostname] || generic;
 
-  const productData = extractor(currentUrl);
+  const productData = await extractor(currentUrl);
   if (!productData) return null; // not a product page
 
   const country_code = await getLocale();

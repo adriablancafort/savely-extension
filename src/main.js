@@ -4,7 +4,7 @@ import PriceComparisonPopup from '$lib/components/PriceComparisonPopup.svelte';
 import { getPrices } from '$lib/pricecomparison.js';
 
 async function mountShadowRoot() {
-  const container = document.createElement('savely');
+  const container = document.createElement('savely-extension');
   document.documentElement.appendChild(container);
 
   shadowRoot = container.attachShadow({ mode: 'open' });

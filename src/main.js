@@ -41,6 +41,7 @@ async function handleNavigation() {
     if (data) {
       if (!shadowRoot) await mountShadowRoot();
       priceComparisonInstance = mount(PriceComparisonPopup, { target: shadowRoot, props: { data } });
+      setCountBadge(data.prices.length);
     }
   }, 10);
 }
@@ -64,3 +65,12 @@ chrome.runtime.onMessage.addListener((message) => {
     if (priceComparisonInstance) priceComparisonInstance.togglePopup();
   }
 });
+
+function setCountBadge(count) {
+  chrome.runtime.sendMessage({
+    action: 'setBadge',
+    text: count.toString(),
+    background: 'red',
+    color: 'white'
+  });
+}

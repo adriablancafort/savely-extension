@@ -9,3 +9,13 @@ chrome.runtime.onInstalled.addListener((details) => {
 chrome.action.onClicked.addListener((tab) => {
   chrome.tabs.sendMessage(tab.id, { action: 'iconClicked' });
 });
+
+chrome.runtime.onMessage.addListener((message) => {
+  if (message.action === "setBadge") setBadge(message.text, message.background, message.color);
+});
+
+function setBadge(text, background, color) {
+  chrome.action.setBadgeText({ text: text });
+  chrome.action.setBadgeBackgroundColor({ color: background });
+  chrome.action.setBadgeTextColor({ color: color });
+}

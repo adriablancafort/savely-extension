@@ -2,6 +2,7 @@ import { mount, unmount } from 'svelte';
 import './app.css';
 import PriceComparisonPopup from '$lib/components/PriceComparisonPopup.svelte';
 import { getPrices } from '$lib/pricecomparison.js';
+import { getValue } from '$lib/storage.js';
 
 async function mountShadowRoot() {
   const container = document.createElement('savely-extension');
@@ -40,7 +41,9 @@ async function handleNavigation() {
     const data = await getPrices(currentUrl);
     if (data) {
       if (!shadowRoot) await mountShadowRoot();
-      priceComparisonInstance = mount(PriceComparisonPopup, { target: shadowRoot, props: { data } });
+      const initShow = await getValue('pricecomparisonshow') ?? true;
+      console.log(initShow);
+      priceComparisonInstance = mount(PriceComparisonPopup, { target: shadowRoot, props: { data, initShow } });
       setCountBadge(data.prices.length);
     }
   }, 10);

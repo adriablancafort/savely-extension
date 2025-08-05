@@ -1,13 +1,15 @@
 <script>
-  import PriceCard from '$lib/components/PriceCOmparisonCard.svelte';
+  import PriceCard from '$lib/components/PriceComparisonCard.svelte';
+  import { setValue } from '$lib/storage.js';
   import { drag } from '$lib/drag.js';
 
-  let { data } = $props();
+  let { data, initShow } = $props();
 
-  let show = $state(true);
+  let show = $state(initShow);
 
   export function togglePopup() {
     show = !show;
+    setValue('pricecomparisonshow', show);
   }
   
   const logoUrl = import.meta.env.PROD ? chrome.runtime.getURL('images/icon.png') : import.meta.env.VITE_ICON_URL;
@@ -20,7 +22,7 @@
       <img src={logoUrl} alt="Logo" width="24" height="24" />
       <span class="title">{popupTitle}</span>
 
-      <button class="close-button" onclick={() => show = false} aria-label="Close popup">
+      <button class="close-button" onclick={togglePopup} aria-label="Close popup">
         <svg width="20px" height="20px" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" stroke="#808080" stroke-width="2" stroke-linecap="round" />
         </svg>

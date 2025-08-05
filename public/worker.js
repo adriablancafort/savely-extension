@@ -11,11 +11,13 @@ chrome.action.onClicked.addListener((tab) => {
 });
 
 chrome.runtime.onMessage.addListener((message) => {
-  if (message.action === "setBadge") setBadge(message.text, message.background, message.color);
+  if (message.action === "setBadge") setBadge(message.text);
 });
 
-function setBadge(text, background, color) {
-  chrome.action.setBadgeText({ text: text });
-  chrome.action.setBadgeBackgroundColor({ color: background });
-  chrome.action.setBadgeTextColor({ color: color });
+chrome.tabs.onActivated.addListener(() => setBadge(''));
+
+function setBadge(text) {
+  chrome.action.setBadgeText({ text });
+  chrome.action.setBadgeBackgroundColor({ color: 'red' });
+  chrome.action.setBadgeTextColor({ color: 'white' });
 }

@@ -43,14 +43,18 @@ async function handleNavigation() {
       if (!shadowRoot) await mountShadowRoot();
       const initShow = await getValue('pricecomparisonshow') ?? true;
       priceComparisonInstance = mount(PriceComparisonPopup, { target: shadowRoot, props: { data, initShow } });
-      setCountBadge(data.prices.length);
+      priceCount = data.prices.length;
+    } else {
+      priceCount = 0;
     }
+    setCountBadge(priceCount);
   }, 10);
 }
 
 let shadowRoot;
 let priceComparisonInstance;
 let currentUrl;
+let priceCount = 0;
 
 const observer = new MutationObserver(async () => {
   const newUrl = window.location.href;
@@ -68,11 +72,10 @@ chrome.runtime.onMessage.addListener((message) => {
   }
 });
 
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') setCountBadge(priceCount);
+});
+
 function setCountBadge(count) {
-  chrome.runtime.sendMessage({
-    action: 'setBadge',
-    text: count.toString(),
-    background: 'red',
-    color: 'white'
-  });
+  chrome.runtime.sendMessage({ action: 'setBadge', text: count > 0 ? count.toString() : '' });
 }

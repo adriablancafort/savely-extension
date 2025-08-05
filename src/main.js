@@ -39,10 +39,9 @@ async function handleNavigation() {
   setTimeout(async () => {
     // fetch data and mount popup
     const data = await getPrices(currentUrl);
-    if (data) {
+    if (data && data.prices.length > 0) {
       if (!shadowRoot) await mountShadowRoot();
       const initShow = await getValue('pricecomparisonshow') ?? true;
-      console.log(initShow);
       priceComparisonInstance = mount(PriceComparisonPopup, { target: shadowRoot, props: { data, initShow } });
       setCountBadge(data.prices.length);
     }

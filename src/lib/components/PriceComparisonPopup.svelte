@@ -16,7 +16,7 @@
   const popupTitle = import.meta.env.PROD ? chrome.i18n.getMessage("popupTitle") : "Better prices found!";
 </script>
 
-{#if show && data.prices.length > 0}
+{#if show}
   <div class="popup slide-in-up" use:drag={{ key: 'pricecomparisonpopup' }}>
     <div class="top">
       <img src={logoUrl} alt="Logo" width="24" height="24" />
@@ -35,6 +35,13 @@
       {/each}
     </div>
   </div>
+{:else}
+  <button class="alert slide-in-right" use:drag={{ key: 'pricecomparisonalert', axis: 'y' }} onclick={togglePopup} aria-label="Open popup">
+    <div class="icon">
+      <img src={logoUrl} alt="Logo" width="40" height="40" />
+      <span class="badge">{data.prices.length}</span>
+    </div>
+  </button>
 {/if}
 
 <style>
@@ -85,6 +92,7 @@
 
   .prices::-webkit-scrollbar-track {
     background: transparent;
+    cursor: pointer;
   }
 
   .prices::-webkit-scrollbar-thumb {
@@ -95,6 +103,43 @@
 
   .prices::-webkit-scrollbar-thumb:hover {
     background-color: #9ca3af;
+  }
+
+  .alert {
+    position: fixed;
+    top: 50%;
+    right: -15px;
+    background: white;
+    border-radius: 99px 0 0 99px;
+    padding: 6px 24px 6px 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     cursor: pointer;
+    z-index: 2147483647;
+    transition: right 0.2s ease;
+  }
+
+  .alert:hover {
+    right: -5px;
+  }
+
+  .icon {
+    position: relative;
+    display: flex;
+  }
+
+  .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 99px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>

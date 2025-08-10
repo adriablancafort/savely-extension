@@ -1,11 +1,12 @@
+import { getValue, setValue } from '$lib/storage.js';
+
 export async function getLocale() {
     try {
-        const stored = await chrome.storage.local.get(['country_code']);
-
-        if (stored.country_code) return stored.country_code;
+        const stored = await getValue('country_code');
+        if (stored) return stored;
 
         const country_code = await fetchLocale();
-        await chrome.storage.local.set({ country_code });
+        await setValue('country_code', country_code);
         return country_code;
     } catch (error) {
         return await fetchLocale();

@@ -15,6 +15,7 @@ import { shop_app } from './product-extractors/shop_app.js';
 import { allegro } from './product-extractors/allegro.js';
 import { wayfair } from './product-extractors/wayfair.js';
 import { www_flipkart_com } from './product-extractors/www_flipkart_com.js';
+import { leroymerlin } from './product-extractors/leroymerlin.js';
 import { generic } from './product-extractors/generic.js';
 
 const extractors = {
@@ -100,6 +101,14 @@ const extractors = {
   'www.wayfair.com': wayfair,
   'www.wayfair.ca': wayfair,
   'www.wayfair.co.uk': wayfair,
+  'www.leroymerlin.es': leroymerlin,
+  'www.leroymerlin.fr': leroymerlin,
+  'www.leroymerlin.pt': leroymerlin,
+  'www.leroymerlin.it': leroymerlin,
+  'www.leroymerlin.pl': leroymerlin,
+  'www.leroymerlin.ro': leroymerlin,
+  'www.leroymerlin.ru': leroymerlin,
+  'www.leroymerlin.com.br': leroymerlin,
 };
 
 export async function getPrices(currentUrl) {

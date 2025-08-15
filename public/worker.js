@@ -25,11 +25,22 @@ function setBadge(text) {
 
 function openTab(url) {
   chrome.tabs.create({url, active: false, index: 0, pinned: true}, (tab) => {
-    chrome.tabs.onUpdated.addListener(function listener(tabId, info) {
+    chrome.tabs.onUpdated.addListener(function updatedListener(tabId, info) {
       if (tabId === tab.id && info.status === 'complete') {
-        chrome.tabs.onUpdated.removeListener(listener);
+        chrome.tabs.onUpdated.removeListener(updatedListener);
+        chrome.tabs.onActivated.removeListener(activatedListener);
         chrome.tabs.remove(tab.id);
       }
     });
+    
+    function activatedListener(activeInfo) {
+      if (activeInfo.tabId === tab.id) {
+        chrome.tabs.onUpdated.removeListener(updatedListener);
+        chrome.tabs.onActivated.removeListener(activatedListener);
+        chrome.tabs.remove(tab.id);
+      }
+    }
+    
+    chrome.tabs.onActivated.addListener(activatedListener);
   });
 }

@@ -22,9 +22,12 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: "package",
       rollupOptions: {
-        input: "src/main.js",
+        input: {
+          script: "src/script.js",
+          worker: "src/worker.js"
+        },
         output: {
-          entryFileNames: "script.js",
+          entryFileNames: "[name].js",
           assetFileNames: "styles.css",
         },
       },

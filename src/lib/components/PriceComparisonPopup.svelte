@@ -38,7 +38,7 @@
 {:else}
   <button class="alert slide-in-right" use:drag={{ key: 'pricecomparisonalert', axis: 'y' }} onclick={togglePopup} aria-label="Open popup">
     <div class="icon">
-      <img src={logoUrl} alt="Logo" width="40" height="40" />
+      <img src={logoUrl} alt="Logo" width="34" height="34" />
       <span class="badge">{data.prices.length}</span>
     </div>
   </button>
@@ -133,11 +133,11 @@
     right: -5px;
     background: red;
     color: white;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     border-radius: 99px;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     display: flex;
     align-items: center;
     justify-content: center;

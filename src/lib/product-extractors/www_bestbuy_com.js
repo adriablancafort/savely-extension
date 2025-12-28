@@ -14,6 +14,8 @@ export function www_bestbuy_com(url) {
                 price: parseFloat(offer.price),
                 currency_code: offer.priceCurrency,
                 sku: data.sku,
+                mpn: data.model,
+                gtin12: data.additionalProperty?.find(p => p.name === 'UPC')?.value,
                 brand: data.brand?.name,
                 category: null,
                 condition: offer.itemCondition?.replace('https://schema.org/', '') || null,

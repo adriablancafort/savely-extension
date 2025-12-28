@@ -14,6 +14,7 @@ export function www_walmart_com(url) {
                 price: parseFloat(offer.price),
                 currency_code: offer.priceCurrency,
                 sku: data.sku,
+                gtin13: data.gtin13,
                 brand: data.brand?.name,
                 category: null,
                 condition: offer.itemCondition?.replace('https://schema.org/', '') || null,
